@@ -1,0 +1,31 @@
+{
+  "name": "zedda",
+  "version": "0.1.0",
+  "description": "Your AI symbiont.",
+  "license": "Zlib",
+  "author": "rudyon",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "zedda": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.7"
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.4.0",
+    "@earendil-works/pi-coding-agent": "^0.77.0",
+    "@stricli/core": "^1.2.7",
+    "discord.js": "^14.26.4",
+    "dotenv": "^17.4.2",
+    "smol-toml": "^1.6.1",
+    "ws": "^8.21.0"
+  }
+}

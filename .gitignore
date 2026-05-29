@@ -1,0 +1,34 @@
+# Dependency directory
+node_modules/
+
+# Compiled files
+dist/
+*.tsbuildinfo
+
+# Secret files and local configuration
+.env
+config.toml
+models.json
+
+# Local runtime directories
+.zedda/
+sessions/
+sessions_mapping.json
+
+# Build and IDE logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test coverage reports and vitest cache
+coverage/
+.vitest/
+
+# Node environment downloads / temporary unpacks
+node.tar.xz
+node-v22.*/
