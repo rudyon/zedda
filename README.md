@@ -38,26 +38,6 @@ zedda tui
 | `zedda gateway restart` | Gracefully restart the running gateway. |
 | `zedda --help` | Show usage help information. |
 
-## architecture
-
-```mermaid
-graph TD
-    subgraph Gateway ["Gateway Daemon (zedda gateway)"]
-        Discord[Discord Bot Adapter]
-        WSS[WebSocket Server]
-        Mgr[Session Manager]
-        Pi["Pi Agent Core (brain)"]
-        
-        Discord --> Mgr
-        WSS --> Mgr
-        Mgr --> Pi
-        Pi --> Discord
-        Pi --> WSS
-    end
-    
-    TUI["TUI Client (zedda tui)"] <-->|WebSocket| WSS
-```
-
 ## configuration
 
 Edit `~/.zedda/config.toml` to change behavior:
