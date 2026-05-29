@@ -2,7 +2,7 @@
 
 > The hope is that, in not too many years, human brains and computing machines will be coupled together very tightly, and that the resulting partnership will think as no human brain has ever thought.
 > 
-> _~ J.C.R. Licklider, [Man-Computer Symbiosis](https://groups.csail.mit.edu/medg/people/psz/Licklider.html)_
+> *~ J.C.R. Licklider, [Man-Computer Symbiosis](https://groups.csail.mit.edu/medg/people/psz/Licklider.html)*
 
 **zedda** is an agentic orchestration harness for running one's own AI symbiont. Heavily inspired by J.C.R. Licklider's seminal paper "[Man-Computer Symbiosis](https://groups.csail.mit.edu/medg/people/psz/Licklider.html)". Basically a gateway extension on top of the [Pi Agent SDK](https://github.com/earendil-works/pi) to hook up a core brain to different adapters (currently Discord and a local TUI client).
 
