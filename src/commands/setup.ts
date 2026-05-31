@@ -15,7 +15,7 @@ export async function runSetup(): Promise<void> {
     message: 'Select LLM Provider:',
     options: [
       { value: 'openrouter', label: 'OpenRouter' },
-      { value: 'wandb', label: 'W&B Serverless Inference' }
+      { value: 'wandb', label: 'Wandb Serverless Inference' }
     ]
   });
 
@@ -25,7 +25,7 @@ export async function runSetup(): Promise<void> {
   }
 
   // 2. API Key
-  const apiKeyPrompt = provider === 'wandb' ? 'Enter W&B API Key:' : 'Enter OpenRouter API Key:';
+  const apiKeyPrompt = provider === 'wandb' ? 'Enter Wandb API Key:' : 'Enter OpenRouter API Key:';
   const apiKey = await p.text({
     message: apiKeyPrompt,
     validate: (value) => {
@@ -41,10 +41,10 @@ export async function runSetup(): Promise<void> {
 
   // 3. Model (Single Select)
   const modelOptions = provider === 'wandb' 
-    ? [ { value: 'zai-org/GLM-5.1', label: 'GLM 5.1' } ]
+    ? [ { value: 'zai-org/GLM-5.1', label: 'Z.AI: GLM 5.1' } ]
     : [
-        { value: 'deepseek/deepseek-v4-flash', label: 'DeepSeek V4 Flash' },
-        { value: 'z-ai/glm-5.1', label: 'GLM 5.1' }
+        { value: 'deepseek/deepseek-v4-flash', label: 'DeepSeek: DeepSeek V4 Flash' },
+        { value: 'zai-org/GLM-5.1', label: 'Z.AI: GLM 5.1' }
       ];
 
   const model = await p.select({
@@ -195,15 +195,15 @@ export async function runSetup(): Promise<void> {
   
   if (provider === 'wandb') {
     modelsConfig.providers.wandb = {
-      name: 'W&B Serverless Inference',
+      name: 'Wandb Serverless Inference',
       baseUrl: 'https://api.inference.wandb.ai/v1',
-      apiKey: 'WANDB_API_KEY',
+      apiKey: '$WANDB_API_KEY',
       api: 'openai-completions',
       authHeader: true,
       models: [
         {
           id: 'zai-org/GLM-5.1',
-          name: 'GLM 5.1',
+          name: 'Z.AI: GLM 5.1',
           reasoning: false,
           contextWindow: 131072,
           maxTokens: 2048
@@ -211,7 +211,7 @@ export async function runSetup(): Promise<void> {
       ]
     };
     fs.writeFileSync(modelsJsonPath, JSON.stringify(modelsConfig, null, 2), 'utf8');
-    p.log.success('Configured models.json for W&B Serverless Inference API.');
+    p.log.success('Configured models.json for Wandb Serverless Inference API.');
   }
 
   // Copy PERSONA.md if missing
